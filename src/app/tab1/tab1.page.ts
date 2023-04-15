@@ -7,6 +7,26 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  contacts = [{
+    firstName: 'Billy',
+    lastName: 'Jones',
+    email: 'billy@email.com.au'
+  },
+  {
+    firstName: 'Sue',
+    lastName: 'Williams',
+    email: 'sue@email.com.au'
+  },
+  {
+    firstName: 'Mike',
+    lastName: 'McDingle',
+    email: 'mike@email.com.au'
+  }];
+
+  constructor() { }
+
+  addContact() {
+    alert('add contact');
+  }
 
 }
