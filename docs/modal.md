@@ -57,3 +57,6 @@ a property and a value.
 ```
 
 ### Modal Page `modal.page.ts`
+
+1. Import the `ModalController`
+2.
