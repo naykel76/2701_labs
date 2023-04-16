@@ -1,40 +1,44 @@
 import { Component, OnInit } from '@angular/core';
-// 1. import ModalController
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavParams } from '@ionic/angular';
 import { Contact } from '../interface/contact';
 
 @Component({
-  selector: 'app-modal-contact',
-  templateUrl: './modal-contact.page.html',
-  styleUrls: ['./modal-contact.page.scss'],
+    selector: 'app-modal-contact',
+    templateUrl: './modal-contact.page.html',
+    styleUrls: ['./modal-contact.page.scss'],
 })
 
 export class ModalContactPage implements OnInit {
 
-  contact: Contact = {
-    firstName: '',
-    lastName: '',
-    email: ''
-  }
+    contact: Contact = {
+        firstName: '',
+        lastName: '',
+        email: ''
+    }
 
-  // 2. inject ModalController to make available to the entire class
-  constructor(private modal: ModalController) { }
+    id?: number;
+    editing: boolean = false;
 
-  ngOnInit() { }
+    constructor(private modal: ModalController, private navParams: NavParams) { }
 
-  /**
-   * close the modal and set data and role
-   */
-  save() {
-    this.modal.dismiss(this.contact, 'saved');
-  }
+    ngOnInit() {
+        if (this.navParams.get('id')) {
+            this.editing = true;
+        }
+    }
 
-  /**
-   * close the modal setting data = null, and role = cancel
-   */
-  cancel() {
-    this.modal.dismiss(null, 'cancel');
-  }
+    /**
+     * close the modal and set data and role
+     */
+    save() {
+        this.modal.dismiss(this.contact, 'saved');
+    }
 
+    /**
+     * close the modal setting data = null, and role = cancel
+     */
+    cancel() {
+        this.modal.dismiss(null, 'cancel');
+    }
 
 }

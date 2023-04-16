@@ -5,7 +5,6 @@
 </ion-header>
 
 <ion-content>
-
   <ion-list>
     <ion-item>
       <ion-input [(ngModel)]="contact.firstName" type="text" labelPlacement="floating" label="First Name"></ion-input>
@@ -17,12 +16,13 @@
       <ion-input [(ngModel)]="contact.email" type="email" label="Email" labelPlacement="floating" helperText="Enter a valid email" errorText="Invalid email" ngModel email></ion-input>
     </ion-item>
   </ion-list>
-
   <ion-footer>
     <ion-grid>
       <ion-row>
         <ion-col>
-          <ion-button (click)="save()" expand="full" color="success">save</ion-button>
+          <ion-button (click)="save()" expand="full" color="success">
+            <span>{{ editing == true ? 'Editing' : 'Create'}}</span>
+          </ion-button>
         </ion-col>
         <ion-col>
           <ion-button (click)="cancel()" expand="full" color="light">Cancel</ion-button>
